@@ -1,20 +1,20 @@
 $(document).ready(function() {
   // blogContainer holds all of our posts
   var blogContainer = $(".blog-container");
-  var postStatusSelect = $("#status");
+  var postCategorySelect = $("#category");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handlePostDelete);
   $(document).on("click", "button.edit", handlePostEdit);
-  postStatusSelect.on("change", handleStatusChange);
+  postCategorySelect.on("change", handleCategoryChange);
   var posts;
 
   // This function grabs posts from the database and updates the view
-  function getPosts(status) {
-    var statusString = status || "";
-    if (statusString) {
-      statusString = "/status/" + statusString;
+  function getPosts(category) {
+    var categoryString = category || "";
+    if (categoryString) {
+      categoryString = "/category/" + categoryString;
     }
-    $.get("/api/posts" + statusString, function(data) {
+    $.get("/api/posts" + categoryString, function(data) {
       console.log("Posts", data);
       posts = data;
       if (!posts || !posts.length) {
@@ -33,7 +33,7 @@ $(document).ready(function() {
       url: "/api/posts/" + id
     })
       .then(function() {
-        getPosts(postStatusSelect.val());
+        getPosts(postCategorySelect.val());
       });
   }
 
@@ -64,9 +64,10 @@ $(document).ready(function() {
     editBtn.addClass("edit btn btn-default");
     var newPostTitle = $("<h2>");
     var newPostDate = $("<small>");
-    var newPoststatus = $("<h5>");
-    newPoststatus.text(post.status);
-    newPoststatus.css({
+    var newPostSchedule = $("<h5>");
+    var newPostCategory = $("<h5>");
+    newPostCategory.text("Status is: " + post.category);
+    newPostCategory.css({
       float: "right",
       "font-weight": "700",
       "margin-top":
@@ -76,15 +77,17 @@ $(document).ready(function() {
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
     newPostTitle.text(post.title + " ");
-    newPostBody.text(post.food);
+    newPostSchedule.text("Proposed lunch time is: " + post.schedule);
+    newPostBody.text(post.body);
     var formattedDate = new Date(post.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    newPostDate.text(formattedDate);
+    //newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);
     newPostCardHeading.append(deleteBtn);
     newPostCardHeading.append(editBtn);
     newPostCardHeading.append(newPostTitle);
-    newPostCardHeading.append(newPoststatus);
+    newPostCardHeading.append(newPostSchedule);
+    newPostCardHeading.append(newPostCategory);
     newPostCardBody.append(newPostBody);
     newPostCard.append(newPostCardHeading);
     newPostCard.append(newPostCardBody);
@@ -117,14 +120,14 @@ $(document).ready(function() {
     blogContainer.empty();
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No lunch groups yet, navigate <a href='/cms'>here</a> in order to create a new lunch group.");
+    messageH2.html("Nvigate <a href='/cms'>here</a> to create a new lunch meet!");
     blogContainer.append(messageH2);
   }
 
-  // This function handles reloading new posts when the status changes
-  function handleStatusChange() {
-    var newStatusstatus = $(this).val();
-    getPosts(newPostStatus);
+  // This function handles reloading new posts when the category changes
+  function handleCategoryChange() {
+    var newPostCategory = $(this).val();
+    getPosts(newPostCategory);
   }
 
 });

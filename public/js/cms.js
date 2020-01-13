@@ -15,10 +15,11 @@ $(document).ready(function() {
   // Getting jQuery references to the post body, title, form, and category select
   var bodyInput = $("#body");
   var titleInput = $("#title");
+  var scheduleInput = $("#schedule");
   var cmsForm = $("#cms");
-  var postStatusSelect = $("#category");
-  // Giving the postStatusSelect a default value
-  postStatusSelect.val("Personal");
+  var postCategorySelect = $("#category");
+  // Giving the postCategorySelect a default value
+  postCategorySelect.val("Open");
   // Adding an event listener for when the form is submitted
   $(cmsForm).on("submit", function handleFormSubmit(event) {
     event.preventDefault();
@@ -29,8 +30,9 @@ $(document).ready(function() {
     // Constructing a newPost object to hand to the database
     var newPost = {
       title: titleInput.val().trim(),
-      food: bodyInput.val().trim(),
-      status: postStatusSelect.val()
+      body: bodyInput.val().trim(),
+      schedule: scheduleInput.val().trim(),
+      category: postCategorySelect.val()
     };
 
     console.log(newPost);
@@ -59,8 +61,9 @@ $(document).ready(function() {
       if (data) {
         // If this post exists, prefill our cms forms with its data
         titleInput.val(data.title);
-        foodInput.val(data.food);
-        postStatusSelect.val(data.status);
+        bodyInput.val(data.body);
+        scheduleInput.val(data.schedule),
+        postCategorySelect.val(data.category);
         // If we have a post with this id, set a flag for us to know to update the post
         // when we hit submit
         updating = true;

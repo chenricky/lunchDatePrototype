@@ -1,4 +1,4 @@
--- Drops the blogger if it exists currently --
+-- Drops the lunchApp if it exists currently --
 DROP DATABASE IF EXISTS lunchApp;
--- Creates the "blogger" database --
+-- Creates the "lunchApp" database --
 CREATE DATABASE lunchApp;

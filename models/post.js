@@ -7,16 +7,23 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    food: {
+    body: {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
-    status: {
+    schedule: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    category: {
       type: DataTypes.STRING,
-      defaultValue: "Active"
+      defaultValue: "Open"
     }
   });
   return Post;

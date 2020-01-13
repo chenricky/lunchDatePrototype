@@ -12,19 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "mysql": "^2.17.1",
+    "express": "^4.16.3",
     "mysql2": "^1.6.4",
-    "path": "^0.12.7",
     "sequelize": "^4.41.2"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chenricky/lunchDatePrototype.git"
-  },
-  "bugs": {
-    "url": "https://github.com/chenricky/lunchDatePrototype/issues"
-  },
-  "homepage": "https://github.com/chenricky/lunchDatePrototype#readme"
+  }
 }

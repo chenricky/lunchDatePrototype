@@ -3,8 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Lunch - Express</title>
+  <title>Blog - Express</title>
   <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
   <script src="https://code.jquery.com/jquery.js"></script>
@@ -16,16 +17,16 @@
     <div class="row mt-4">
       <div class="col-md-4">
         <div class="form-group">
-          <select class="custom-select" id="status">
-            <option selected value="">All Lunches</option>
-            <option value="full">Full - Not accepting Attendee</option>
-            <option value="Active">Active - Accepting Attendees</option>
-            <option value="Already_happen">Already Happen!</option>
+          <select class="custom-select" id="category">
+            <option selected value="">All Categories</option>
+            <option value="Open">Open</option>
+            <option value="Confirmed">Confirmed</option>
+            <option value="Ate">Ate</option>
           </select>
         </div>
       </div>
       <div class="col-md-2">
-        <a class="btn btn-light" href="/cms">New Lunch Group</a>
+        <a class="btn btn-light" href="/cms">Propose a lunch meet!</a>
       </div>
     </div>
     <div class="row">

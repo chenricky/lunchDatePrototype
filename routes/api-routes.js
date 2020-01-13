@@ -21,10 +21,10 @@ module.exports = function(app) {
   });
 
   // Get route for returning posts of a specific category
-  app.get("/api/posts/status/:status", function(req, res) {
+  app.get("/api/posts/category/:category", function(req, res) {
     db.Post.findAll({
       where: {
-        category: req.params.status
+        category: req.params.category
       }
     })
       .then(function(dbPost) {
@@ -49,8 +49,9 @@ module.exports = function(app) {
     console.log(req.body);
     db.Post.create({
       title: req.body.title,
-      food: req.body.food,
-      status: req.body.status
+      body: req.body.body,
+      schedule: req.body.schedule,
+      category: req.body.category
     })
       .then(function(dbPost) {
         res.json(dbPost);
