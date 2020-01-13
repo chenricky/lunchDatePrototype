@@ -65,6 +65,7 @@ $(document).ready(function() {
     var newPostTitle = $("<h2>");
     var newPostDate = $("<small>");
     var newPostSchedule = $("<h5>");
+    var newPostPeople = $("<h5>");
     var newPostCategory = $("<h5>");
     newPostCategory.text("Status is: " + post.category);
     newPostCategory.css({
@@ -78,6 +79,7 @@ $(document).ready(function() {
     var newPostBody = $("<p>");
     newPostTitle.text(post.title + " ");
     newPostSchedule.text("Proposed lunch time is: " + post.schedule);
+    newPostPeople.text("People plan to attend the lunch: " + post.people);
     newPostBody.text(post.body);
     var formattedDate = new Date(post.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
@@ -87,6 +89,7 @@ $(document).ready(function() {
     newPostCardHeading.append(editBtn);
     newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(newPostSchedule);
+    newPostCardHeading.append(newPostPeople);
     newPostCardHeading.append(newPostCategory);
     newPostCardBody.append(newPostBody);
     newPostCard.append(newPostCardHeading);

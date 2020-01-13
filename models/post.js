@@ -21,6 +21,13 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
+    people: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+      len: [1]
+      }
+    },
     category: {
       type: DataTypes.STRING,
       defaultValue: "Open"

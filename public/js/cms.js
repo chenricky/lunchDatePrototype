@@ -16,6 +16,7 @@ $(document).ready(function() {
   var bodyInput = $("#body");
   var titleInput = $("#title");
   var scheduleInput = $("#schedule");
+  var peopleInput = $("#people");
   var cmsForm = $("#cms");
   var postCategorySelect = $("#category");
   // Giving the postCategorySelect a default value
@@ -32,6 +33,7 @@ $(document).ready(function() {
       title: titleInput.val().trim(),
       body: bodyInput.val().trim(),
       schedule: scheduleInput.val().trim(),
+      people: peopleInput.val().trim(),
       category: postCategorySelect.val()
     };
 
@@ -63,6 +65,7 @@ $(document).ready(function() {
         titleInput.val(data.title);
         bodyInput.val(data.body);
         scheduleInput.val(data.schedule),
+        peopleInput.val(data.people),
         postCategorySelect.val(data.category);
         // If we have a post with this id, set a flag for us to know to update the post
         // when we hit submit

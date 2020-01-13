@@ -51,6 +51,7 @@ module.exports = function(app) {
       title: req.body.title,
       body: req.body.body,
       schedule: req.body.schedule,
+      people: req.body.people,
       category: req.body.category
     })
       .then(function(dbPost) {
